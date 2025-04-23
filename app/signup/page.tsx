@@ -1,5 +1,4 @@
 
-// Signup page route
 "use client";
 import { useState } from "react";
 import Link from "next/link";
@@ -9,7 +8,13 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
-import LeafScene from "@/components/three/LeafScene";
+import dynamic from 'next/dynamic';
+
+// Import LeafScene with no SSR to avoid hydration issues
+const LeafScene = dynamic(
+  () => import('@/components/three/LeafScene'),
+  { ssr: false }
+);
 
 export default function Signup() {
   const [showPassword, setShowPassword] = useState(false);

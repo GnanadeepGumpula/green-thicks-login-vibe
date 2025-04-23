@@ -1,7 +1,6 @@
 
 import { Canvas } from '@react-three/fiber'
-import { useMemo } from 'react'
-import { OrbitControls, Sphere } from '@react-three/drei'
+import { useMemo, Suspense } from 'react'
 import Leaf from './Leaf'
 
 export default function LeafScene({ isSignup = false }) {
@@ -10,22 +9,17 @@ export default function LeafScene({ isSignup = false }) {
       <Canvas 
         camera={{ position: [0, 0, 10], fov: 50 }}
         style={{ width: '100%', height: '100%' }}
+        dpr={[1, 1.5]} 
       >
         <ambientLight intensity={0.8} />
         <directionalLight 
           position={[5, 5, 5]} 
           intensity={1} 
         />
-        <OrbitControls 
-          enableZoom={false} 
-          enablePan={false} 
-          autoRotate 
-          autoRotateSpeed={0.5} 
-          maxPolarAngle={Math.PI / 2} 
-          minPolarAngle={Math.PI / 3}
-        />
-        <LeafParticles count={isSignup ? 20 : 15} />
-        <GreenSphere />
+        <Suspense fallback={null}>
+          <LeafParticles count={isSignup ? 20 : 15} />
+          <GreenSphere />
+        </Suspense>
       </Canvas>
     </div>
   )
@@ -33,7 +27,8 @@ export default function LeafScene({ isSignup = false }) {
 
 function GreenSphere() {
   return (
-    <Sphere args={[2.5, 32, 32]} position={[0, 0, 0]}>
+    <mesh position={[0, 0, 0]}>
+      <sphereGeometry args={[2.5, 32, 32]} />
       <meshPhysicalMaterial
         color="#339933"
         transmission={0.6}
@@ -44,7 +39,7 @@ function GreenSphere() {
         opacity={0.7}
         transparent
       />
-    </Sphere>
+    </mesh>
   )
 }
 

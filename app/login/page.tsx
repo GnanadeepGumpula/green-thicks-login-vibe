@@ -1,5 +1,4 @@
 
-// Login page route
 "use client";
 import { useState } from "react";
 import Link from "next/link";
@@ -8,7 +7,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
-import LeafScene from "@/components/three/LeafScene";
+import dynamic from 'next/dynamic';
+
+// Import LeafScene with no SSR to avoid hydration issues
+const LeafScene = dynamic(
+  () => import('@/components/three/LeafScene'),
+  { ssr: false }
+);
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);

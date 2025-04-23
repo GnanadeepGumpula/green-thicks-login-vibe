@@ -2,7 +2,7 @@
 import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { Plane } from '@react-three/drei'
-import { Vector3, Mesh } from 'three'
+import { Vector3 } from 'three'
 
 type LeafProps = {
   position?: [number, number, number]
@@ -19,7 +19,7 @@ export default function Leaf({
   color = '#8DC63F',
   speed = 1
 }: LeafProps) {
-  const leafRef = useRef<Mesh>(null!)
+  const leafRef = useRef<any>(null)
   const randomOffset = useRef(Math.random() * 2 * Math.PI).current
   
   useFrame((state) => {
@@ -38,13 +38,8 @@ export default function Leaf({
   return (
     <group position={new Vector3(...position)} scale={scale}>
       <mesh ref={leafRef}>
-        <Plane args={[1, 1.5]} rotation={[0, 0, Math.PI / 4]}>
-          <meshStandardMaterial 
-            color={color} 
-            transparent={true} 
-            opacity={0.9} 
-          />
-        </Plane>
+        <planeGeometry args={[1, 1.5]} />
+        <meshStandardMaterial color={color} transparent opacity={0.9} />
       </mesh>
     </group>
   )
