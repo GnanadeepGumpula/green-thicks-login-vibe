@@ -21,18 +21,18 @@ export default function Signup() {
         <img 
           src="/lovable-uploads/d07e0a90-7060-4a20-a861-24c1b507ed99.png" 
           alt="GreenThicks Logo" 
-          className="h-16 md:h-20 animate-float" 
+          className="h-16 md:h-20" 
         />
       </div>
       
       <div className="w-full max-w-md relative z-10 my-8">
-        <div className="absolute -top-10 -right-10 w-40 h-40 bg-greenthicks/30 rounded-full blur-3xl animate-pulse-gentle" />
-        <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-greenthicks-gold/20 rounded-full blur-3xl animate-pulse-gentle" />
+        <div className="absolute -top-10 -right-10 w-40 h-40 bg-greenthicks/30 rounded-full blur-3xl" />
+        <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-greenthicks-gold/20 rounded-full blur-3xl" />
         
-        <Card className="glass border-greenthicks-light/20 overflow-hidden">
+        <Card className="border-greenthicks-light/20 overflow-hidden bg-white/80 backdrop-blur-sm">
           <CardHeader className="space-y-1 text-center">
             <div className="space-y-1">
-              <h1 className="text-3xl font-extrabold tracking-tight text-gradient">Join GreenThicks</h1>
+              <h1 className="text-3xl font-extrabold tracking-tight">Join GreenThicks</h1>
               <p className="text-sm text-muted-foreground">
                 Create an account to get started
               </p>
@@ -49,7 +49,7 @@ export default function Signup() {
                   <Input 
                     id="firstName" 
                     placeholder="John" 
-                    className="pl-10 bg-white/50 input-shadow focus:bg-white/80 transition-colors" 
+                    className="pl-10 bg-white/50 focus:bg-white/80 transition-colors" 
                   />
                 </div>
               </div>
@@ -58,7 +58,7 @@ export default function Signup() {
                 <Input 
                   id="lastName" 
                   placeholder="Doe" 
-                  className="bg-white/50 input-shadow focus:bg-white/80 transition-colors" 
+                  className="bg-white/50 focus:bg-white/80 transition-colors" 
                 />
               </div>
             </div>
@@ -73,7 +73,7 @@ export default function Signup() {
                   id="email" 
                   type="email" 
                   placeholder="you@example.com" 
-                  className="pl-10 bg-white/50 input-shadow focus:bg-white/80 transition-colors" 
+                  className="pl-10 bg-white/50 focus:bg-white/80 transition-colors" 
                 />
               </div>
             </div>
@@ -88,7 +88,7 @@ export default function Signup() {
                   id="password" 
                   type={showPassword ? "text" : "password"} 
                   placeholder="••••••••" 
-                  className="pl-10 bg-white/50 input-shadow focus:bg-white/80 transition-colors" 
+                  className="pl-10 bg-white/50 focus:bg-white/80 transition-colors" 
                 />
                 <div 
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground cursor-pointer hover:text-foreground"
@@ -109,7 +109,7 @@ export default function Signup() {
                   id="confirmPassword" 
                   type={showConfirmPassword ? "text" : "password"} 
                   placeholder="••••••••" 
-                  className="pl-10 bg-white/50 input-shadow focus:bg-white/80 transition-colors" 
+                  className="pl-10 bg-white/50 focus:bg-white/80 transition-colors" 
                 />
                 <div 
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground cursor-pointer hover:text-foreground"

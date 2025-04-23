@@ -1,21 +1,20 @@
 
-import { Canvas, useFrame } from '@react-three/fiber'
-import { useRef, useMemo } from 'react'
+import { Canvas } from '@react-three/fiber'
+import { useMemo } from 'react'
 import { OrbitControls, Sphere } from '@react-three/drei'
 import Leaf from './Leaf'
-import * as THREE from 'three'
 
 export default function LeafScene({ isSignup = false }) {
   return (
-    <div className="canvas-container">
-      <Canvas shadows camera={{ position: [0, 0, 10], fov: 50 }}>
+    <div className="fixed inset-0 w-full h-full -z-10">
+      <Canvas 
+        camera={{ position: [0, 0, 10], fov: 50 }}
+        style={{ width: '100%', height: '100%' }}
+      >
         <ambientLight intensity={0.8} />
         <directionalLight 
           position={[5, 5, 5]} 
           intensity={1} 
-          castShadow 
-          shadow-mapSize-width={1024} 
-          shadow-mapSize-height={1024}
         />
         <OrbitControls 
           enableZoom={false} 
@@ -33,16 +32,8 @@ export default function LeafScene({ isSignup = false }) {
 }
 
 function GreenSphere() {
-  const sphereRef = useRef<THREE.Mesh>(null!)
-  
-  useFrame(({ clock }) => {
-    if (sphereRef.current) {
-      sphereRef.current.rotation.y = clock.getElapsedTime() * 0.1
-    }
-  })
-  
   return (
-    <Sphere ref={sphereRef} args={[2.5, 32, 32]} position={[0, 0, 0]}>
+    <Sphere args={[2.5, 32, 32]} position={[0, 0, 0]}>
       <meshPhysicalMaterial
         color="#339933"
         transmission={0.6}

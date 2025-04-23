@@ -1,7 +1,7 @@
 
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Eye, EyeOff, Lock, Mail, User } from 'lucide-react'
+import { Eye, EyeOff, Lock, Mail } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -19,18 +19,18 @@ export default function Login() {
         <img 
           src="/lovable-uploads/d07e0a90-7060-4a20-a861-24c1b507ed99.png" 
           alt="GreenThicks Logo" 
-          className="h-16 md:h-20 animate-float" 
+          className="h-16 md:h-20" 
         />
       </div>
       
       <div className="w-full max-w-md relative z-10">
-        <div className="absolute -top-10 -left-10 w-32 h-32 bg-greenthicks-light/30 rounded-full blur-3xl animate-pulse-gentle" />
-        <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-greenthicks-dark/20 rounded-full blur-3xl animate-pulse-gentle" />
+        <div className="absolute -top-10 -left-10 w-32 h-32 bg-greenthicks-light/30 rounded-full blur-3xl" />
+        <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-greenthicks-dark/20 rounded-full blur-3xl" />
         
-        <Card className="glass border-greenthicks-light/20 overflow-hidden">
+        <Card className="border-greenthicks-light/20 overflow-hidden bg-white/80 backdrop-blur-sm">
           <CardHeader className="space-y-2 text-center">
             <div className="space-y-2">
-              <h1 className="text-3xl font-extrabold tracking-tight text-gradient">Welcome Back</h1>
+              <h1 className="text-3xl font-extrabold tracking-tight">Welcome Back</h1>
               <p className="text-sm text-muted-foreground">
                 Sign in to access your GreenThicks account
               </p>
@@ -47,7 +47,7 @@ export default function Login() {
                   id="email" 
                   type="email" 
                   placeholder="you@example.com" 
-                  className="pl-10 bg-white/50 input-shadow focus:bg-white/80 transition-colors" 
+                  className="pl-10 bg-white/50 focus:bg-white/80 transition-colors" 
                 />
               </div>
             </div>
@@ -69,7 +69,7 @@ export default function Login() {
                   id="password" 
                   type={showPassword ? "text" : "password"} 
                   placeholder="••••••••" 
-                  className="pl-10 bg-white/50 input-shadow focus:bg-white/80 transition-colors" 
+                  className="pl-10 bg-white/50 focus:bg-white/80 transition-colors" 
                 />
                 <div 
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground cursor-pointer hover:text-foreground"
