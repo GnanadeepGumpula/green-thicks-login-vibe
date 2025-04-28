@@ -21,12 +21,34 @@ export default function Home() {
         Fresh from farm to table. Experience our sustainable produce with just a click.
       </p>
 
-      <div className="flex flex-col sm:flex-row gap-4">
+      /*
+                    temparally hidden
+                    
+                    <div className="flex flex-col sm:flex-row gap-4">
         <Button asChild className="bg-greenthicks hover:bg-greenthicks-dark text-white px-8 py-6 text-lg">
-          <Link href="/login">Sign In</Link>
+          <Link href="/login">Sign</Link>
         </Button>
         <Button asChild variant="outline" className="border-greenthicks text-greenthicks hover:bg-greenthicks/10 px-8 py-6 text-lg">
           <Link href="/signup">Create Account</Link>
+        </Button>
+      </div>   
+
+      */
+
+      <div className="flex flex-col sm:flex-row gap-4">
+        <Button asChild className="bg-greenthicks hover:bg-greenthicks-dark text-white px-8 py-6 text-lg">
+          <Link href="/my-orders"  onClick={(e) => {
+                        e.preventDefault();
+                        alert("To see your orders, please login first.");
+                      }}
+                      className="w-full flex items-center cursor-not-allowed">Sign</Link>
+        </Button>
+        <Button asChild variant="outline" className="border-greenthicks text-greenthicks hover:bg-greenthicks/10 px-8 py-6 text-lg">
+          <Link href="/my-orders"  onClick={(e) => {
+                        e.preventDefault();
+                        alert("To see your orders, please login first.");
+                      }}
+                      className="w-full flex items-center cursor-not-allowed">Create Account</Link>
         </Button>
       </div>
 
