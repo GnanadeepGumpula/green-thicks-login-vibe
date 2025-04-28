@@ -2,8 +2,27 @@
 // Home/Index Page
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { useToast } from "@/hooks/use-toast";
 
 export default function Home() {
+  const { toast } = useToast();
+
+  const handleSignInClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    toast({
+      title: "Not Available",
+      description: "We are not taking orders now. We will start our business very soon. Please come back again.",
+    });
+  };
+
+  const handleCreateAccountClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    toast({
+      title: "Not Available",
+      description: "We are not taking new users now. We will take new users very soon. Please come back again.",
+    });
+  };
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-white to-greenthicks-light/10 p-6">
       <div className="mb-8 animate-float">
@@ -37,18 +56,14 @@ export default function Home() {
 
       <div className="flex flex-col sm:flex-row gap-4">
         <Button asChild className="bg-greenthicks hover:bg-greenthicks-dark text-white px-8 py-6 text-lg">
-          <Link href="/my-orders"  onClick={(e) => {
-                        e.preventDefault();
-                        alert("To see your orders, please login first.");
-                      }}
-                      className="w-full flex items-center cursor-not-allowed">Sign</Link>
+          <Link href="#" onClick={handleSignInClick} className="w-full flex items-center">
+            Sign In
+          </Link>
         </Button>
         <Button asChild variant="outline" className="border-greenthicks text-greenthicks hover:bg-greenthicks/10 px-8 py-6 text-lg">
-          <Link href="/my-orders"  onClick={(e) => {
-                        e.preventDefault();
-                        alert("To see your orders, please login first.");
-                      }}
-                      className="w-full flex items-center cursor-not-allowed">Create Account</Link>
+          <Link href="#" onClick={handleCreateAccountClick} className="w-full flex items-center">
+            Create Account
+          </Link>
         </Button>
       </div>
 
