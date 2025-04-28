@@ -55,12 +55,21 @@ export default function Home() {
       */
 
       <div className="flex flex-col sm:flex-row gap-4">
-        <Button asChild className="bg-greenthicks hover:bg-greenthicks-dark text-white px-8 py-6 text-lg">
+        <Button 
+          asChild 
+          className="bg-greenthicks hover:bg-greenthicks-dark text-white px-8 py-6 text-lg cursor-not-allowed opacity-50"
+          disabled
+        >
           <Link href="#" onClick={handleSignInClick} className="w-full flex items-center">
             Sign In
           </Link>
         </Button>
-        <Button asChild variant="outline" className="border-greenthicks text-greenthicks hover:bg-greenthicks/10 px-8 py-6 text-lg">
+        <Button 
+          asChild 
+          variant="outline" 
+          className="border-greenthicks text-greenthicks hover:bg-greenthicks/10 px-8 py-6 text-lg cursor-not-allowed opacity-50"
+          disabled
+        >
           <Link href="#" onClick={handleCreateAccountClick} className="w-full flex items-center">
             Create Account
           </Link>
