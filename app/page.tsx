@@ -1,4 +1,3 @@
-
 // Home/Index Page
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -40,39 +39,21 @@ export default function Home() {
         Fresh from farm to table. Experience our sustainable produce with just a click.
       </p>
 
-      /*
-                    temparally hidden
-                    
-                    <div className="flex flex-col sm:flex-row gap-4">
-        <Button asChild className="bg-greenthicks hover:bg-greenthicks-dark text-white px-8 py-6 text-lg">
-          <Link href="/login">Sign</Link>
-        </Button>
-        <Button asChild variant="outline" className="border-greenthicks text-greenthicks hover:bg-greenthicks/10 px-8 py-6 text-lg">
-          <Link href="/signup">Create Account</Link>
-        </Button>
-      </div>   
-
-      */
-
       <div className="flex flex-col sm:flex-row gap-4">
-        <Button 
-          asChild 
-          className="bg-greenthicks hover:bg-greenthicks-dark text-white px-8 py-6 text-lg cursor-not-allowed opacity-50"
+        <Button
+          className="bg-greenthicks text-white px-8 py-6 text-lg opacity-50 cursor-not-allowed"
+          onClick={handleSignInClick}
           disabled
         >
-          <Link href="#" onClick={handleSignInClick} className="w-full flex items-center">
-            Sign In
-          </Link>
+          Sign In
         </Button>
-        <Button 
-          asChild 
-          variant="outline" 
-          className="border-greenthicks text-greenthicks hover:bg-greenthicks/10 px-8 py-6 text-lg cursor-not-allowed opacity-50"
+        <Button
+          variant="outline"
+          className="border-greenthicks text-greenthicks px-8 py-6 text-lg opacity-50 cursor-not-allowed"
+          onClick={handleCreateAccountClick}
           disabled
         >
-          <Link href="#" onClick={handleCreateAccountClick} className="w-full flex items-center">
-            Create Account
-          </Link>
+          Create Account
         </Button>
       </div>
 
